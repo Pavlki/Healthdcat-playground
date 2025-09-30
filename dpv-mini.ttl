@@ -1,0 +1,44 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dpv:  <https://w3id.org/dpv#> .
+
+<#> a owl:Ontology ;
+  dct:title "DPV mini (demo subset for Dataspecer)"@en ;
+  dct:description "Tiny subset of DPV for demo purposes only. Provides dpv:hasPurpose, dpv:hasLegalBasis, dpv:hasPersonalData and minimal class stubs. Not authoritative."@en ;
+  dct:creator "Prepared for workshop demo" ;
+  dct:license <https://creativecommons.org/publicdomain/zero/1.0/> .
+
+### Minimal class stubs (for ranges) ###
+dpv:Purpose a rdfs:Class ;
+  rdfs:label "Purpose"@en ;
+  rdfs:comment "DPV concept representing the purpose of processing. Minimal stub for demo."@en .
+
+dpv:LegalBasis a rdfs:Class ;
+  rdfs:label "Legal Basis"@en ;
+  rdfs:comment "DPV concept representing a legal basis for processing. Minimal stub for demo."@en .
+
+dpv:PersonalData a rdfs:Class ;
+  rdfs:label "Personal Data"@en ;
+  rdfs:comment "DPV concept representing categories/types of personal data. Minimal stub for demo."@en .
+
+### Minimal properties ###
+dpv:hasPurpose a rdf:Property ;
+  rdfs:label "has purpose"@en ;
+  rdfs:comment "Indicates the purpose associated with the dataset/processing. Demo-only subset."@en ;
+  rdfs:domain dcat:Dataset ;
+  rdfs:range  dpv:Purpose .
+
+dpv:hasLegalBasis a rdf:Property ;
+  rdfs:label "has legal basis"@en ;
+  rdfs:comment "Indicates the legal basis applicable to the dataset/processing. Demo-only subset."@en ;
+  rdfs:domain dcat:Dataset ;
+  rdfs:range  dpv:LegalBasis .
+
+dpv:hasPersonalData a rdf:Property ;
+  rdfs:label "has personal data"@en ;
+  rdfs:comment "Indicates personal data categories present in the dataset. Demo-only subset."@en ;
+  rdfs:domain dcat:Dataset ;
+  rdfs:range  dpv:PersonalData .
